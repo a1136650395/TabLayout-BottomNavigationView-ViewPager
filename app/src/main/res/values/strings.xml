@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">BottomNavigationView</string>
+    <string name="alarm">闹钟</string>
+    <string name="favorite">收藏</string>
+    <string name="gallery">图库</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mine">我的</string>
+</resources>

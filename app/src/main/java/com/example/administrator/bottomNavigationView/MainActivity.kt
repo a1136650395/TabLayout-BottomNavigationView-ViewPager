@@ -16,11 +16,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         initViewPagerAndBottomNavigationView()
     }
-
+    /**
+     * 初始化viewpager和BottomNavigationView,并联动，关闭MenuItem滑动动画
+    * */
     @SuppressLint("RestrictedApi")
     private fun initViewPagerAndBottomNavigationView() {
+        //viewpager适配器
         val fragments = arrayOf(BlankFragment(), BlankFragment2(), BlankFragment3(), BlankFragment4())
         viewPager.adapter = MyFragmentPagerAdapter(fragments, supportFragmentManager)
+        //MenuItem只能有一个是选中状态
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
 
@@ -37,6 +41,7 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+        //MenuItem关闭滑动动画
         val bottomNavigationMenuView = bottomNavigationView.getChildAt(0) as BottomNavigationMenuView
         val shiftModeField = bottomNavigationMenuView.javaClass.getDeclaredField("mShiftingMode")
         shiftModeField.isAccessible = true
@@ -47,6 +52,7 @@ class MainActivity : AppCompatActivity() {
                     it.setShiftingMode(false)
                     it.setChecked(it.itemData.isChecked)
                 }
+        //底部按钮切换viewpager
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menu_alarm -> viewPager.currentItem = 0

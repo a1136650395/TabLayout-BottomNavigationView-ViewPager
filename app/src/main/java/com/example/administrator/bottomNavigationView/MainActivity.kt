@@ -15,6 +15,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initViewPagerAndBottomNavigationView()
+        //tabLayout绑定viewPager
+        tabLayout.setupWithViewPager(viewPager)
     }
     /**
      * 初始化viewpager和BottomNavigationView,并联动，关闭MenuItem滑动动画
@@ -23,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     private fun initViewPagerAndBottomNavigationView() {
         //viewpager适配器
         val fragments = arrayOf(BlankFragment(), BlankFragment2(), BlankFragment3(), BlankFragment4())
-        viewPager.adapter = MyFragmentPagerAdapter(fragments, supportFragmentManager)
+        viewPager.adapter = MyFragmentPagerAdapter(fragments, supportFragmentManager,this)
         //MenuItem只能有一个是选中状态
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
@@ -56,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menu_alarm -> viewPager.currentItem = 0
-                R.id.menu_favorite -> viewPager.currentItem = 1
+                R.id.menu_collect -> viewPager.currentItem = 1
                 R.id.menu_gallery -> viewPager.currentItem = 2
                 R.id.menu_mine -> viewPager.currentItem = 3
             }

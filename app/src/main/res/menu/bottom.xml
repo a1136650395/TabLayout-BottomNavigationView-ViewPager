@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:title="@string/alarm" android:id="@+id/menu_alarm" android:icon="@drawable/alarm"/>
-    <item android:title="@string/favorite" android:id="@+id/menu_favorite" android:icon="@drawable/collect"/>
+    <item android:title="@string/favorite" android:id="@+id/menu_collect" android:icon="@drawable/collect"/>
     <item android:title="@string/gallery" android:id="@+id/menu_gallery" android:icon="@drawable/gallery"/>
     <item android:title="@string/mine" android:id="@+id/menu_mine" android:icon="@drawable/mine"/>
 </menu>
